@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Competition Scoreboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Robotics Competition Scoreboard</h1>
+        
+        <div class="timer-control">
+            <h2>Competition Timer</h2>
+            <div class="timer-display large">
+                <div id="timer">00:00</div>
+                <div id="timer-status">Not running</div>
+            </div>
+        </div>
+        
+        <nav>
+            <button id="firstLegoTabBtn" class="tab-btn active">FIRST Lego League Challenge</button>
+            <button id="robofestTabBtn" class="tab-btn">Robofest</button>
+        </nav>
+        
+        <div id="firstLegoSection" class="competition-section">
+            <h2>FIRST Lego League Rankings</h2>
+            <div class="round-tabs">
+                <button class="round-tab active" data-round="round1">Round 1</button>
+                <button class="round-tab" data-round="round2">Round 2</button>
+            </div>
+            
+            <table id="firstLegoScoreboard">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team (#Pit)</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Teams will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="robofestSection" class="competition-section" style="display: none;">
+            <h2>Robofest Rankings</h2>
+            <div class="round-tabs">
+                <button class="round-tab active" data-round="round1">Round 1</button>
+                <button class="round-tab" data-round="round2">Round 2</button>
+            </div>
+            
+            <table id="robofestScoreboard">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team (#Pit)</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Teams will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="scoreboard.js"></script>
+</body>
+</html>
