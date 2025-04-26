@@ -1,86 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard - Robotics Competition</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Robotics Competition</title>
+  
+  <!-- Link to external CSS for styling -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-<header>
-<h1>Admin Dashboard</h1>
-<nav>
-<button id="firstLegoTabBtn" class="tab-btn active">FIRST Lego League Challenge</button>
-<button id="robofestTabBtn" class="tab-btn">Robofest</button>
-<a href="/logout" class="btn btn-danger">Logout</a>
-</nav>
-</header>
-<div class="timer-control">
-<h2>Competition Timer</h2>
-<div class="timer-display">
-<div id="timer">00:00</div>
-<div id="timer-status">Not running</div>
-</div>
-<div class="timer-actions">
-<input type="text" id="timer-minutes" placeholder="Minutes:Seconds (e.g., 2:30)">
-<button id="start-timer" class="btn btn-primary">Start Timer</button>
-<button id="stop-timer" class="btn btn-danger">Stop Timer</button>
-</div>
-</div>
-<div id="firstLegoSection" class="competition-section">
-<h2>FIRST Lego League Challenge teams</h2>
-<div class="team-controls">
-<form id="addFirstLegoTeam">
-<input type="text" id="firstLegoTeamName" placeholder="Team Name" required>
-<input type="number" id="firstLegoTeamNumber" placeholder="Pit Number" required>
-<button type="submit" class="btn btn-primary">Add Team</button>
-</form>
-</div>
-<div class="teams-scores">
-<h3>Round Scores</h3>
-<table id="firstLegoScores">
-<thead>
-<tr>
-<th>Team</th>
-<th>Round 1</th>
-<th>Round 2</th>
-<th>Round 3 (Hidden)</th>
-</tr>
-</thead>
-<tbody>
-<!-- Teams will be added here dynamically -->
-</tbody>
-</table>
-</div>
-</div>
-<div id="robofestSection" class="competition-section" style="display: none;">
-<h2>Robofest Teams</h2>
-<div class="team-controls">
-<form id="addRobofestTeam">
-<input type="text" id="robofestTeamName" placeholder="Team Name" required>
-<input type="number" id="robofestTeamNumber" placeholder="Team Number" required>
-<button type="submit" class="btn btn-primary">Add Team</button>
-</form>
-</div>
-<div class="teams-scores">
-<h3>Round Scores</h3>
-<table id="robofestScores">
-<thead>
-<tr>
-<th>Team</th>
-<th>Round 1</th>
-<th>Round 2</th>
-<th>Round 3 (Hidden)</th>
-</tr>
-</thead>
-<tbody>
-<!-- Teams will be added here dynamically -->
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<script src="dashboard.js"></script>
+  <div class="container">
+
+    <!-- Header section with navigation -->
+    <header>
+      <h1>Admin Dashboard</h1>
+
+      <!-- Navigation tabs for switching between competitions -->
+      <nav>
+        <button id="firstLegoTabBtn" class="tab-btn active">FIRST Lego League Challenge</button>
+        <button id="robofestTabBtn" class="tab-btn">Robofest</button>
+
+        <!-- Logout link -->
+        <a href="/logout" class="btn btn-danger">Logout</a>
+      </nav>
+    </header>
+
+    <!-- Timer controls section -->
+    <div class="timer-control">
+      <h2>Competition Timer</h2>
+
+      <!-- Display for remaining time and timer status -->
+      <div class="timer-display">
+        <div id="timer">00:00</div>
+        <div id="timer-status">Not running</div>
+      </div>
+
+      <!-- Input and control buttons for starting/stopping the timer -->
+      <div class="timer-actions">
+        <input type="text" id="timer-minutes" placeholder="Minutes:Seconds (e.g., 2:30)">
+        <button id="start-timer" class="btn btn-primary">Start Timer</button>
+        <button id="stop-timer" class="btn btn-danger">Stop Timer</button>
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- FIRST LEGO LEAGUE SECTION -->
+    <!-- ============================= -->
+
+    <div id="firstLegoSection" class="competition-section">
+      <h2>FIRST Lego League Challenge teams</h2>
+
+      <!-- Form for adding new teams -->
+      <div class="team-controls">
+        <form id="addFirstLegoTeam">
+          <input type="text" id="firstLegoTeamName" placeholder="Team Name" required>
+          <input type="number" id="firstLegoTeamNumber" placeholder="Pit Number" required>
+          <button type="submit" class="btn btn-primary">Add Team</button>
+        </form>
+      </div>
+
+      <!-- Table to display and manage scores -->
+      <div class="teams-scores">
+        <h3>Round Scores</h3>
+        <table id="firstLegoScores">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>Round 1</th>
+              <th>Round 2</th>
+              <th>Round 3 (Hidden)</th> <!-- Round 3 visible only for admins -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- JavaScript will dynamically populate rows here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- ROBOFEST SECTION -->
+    <!-- ============================= -->
+
+    <div id="robofestSection" class="competition-section" style="display: none;">
+      <h2>Robofest Teams</h2>
+
+      <!-- Form for adding Robofest teams -->
+      <div class="team-controls">
+        <form id="addRobofestTeam">
+          <input type="text" id="robofestTeamName" placeholder="Team Name" required>
+          <input type="number" id="robofestTeamNumber" placeholder="Team Number" required>
+          <button type="submit" class="btn btn-primary">Add Team</button>
+        </form>
+      </div>
+
+      <!-- Table to display and manage scores -->
+      <div class="teams-scores">
+        <h3>Round Scores</h3>
+        <table id="robofestScores">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>Round 1</th>
+              <th>Round 2</th>
+              <th>Round 3 (Hidden)</th> <!-- Round 3 visible only for admins -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- JavaScript will dynamically populate rows here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link to dashboard logic (JavaScript file) -->
+  <script src="dashboard.js"></script>
 </body>
 </html>
